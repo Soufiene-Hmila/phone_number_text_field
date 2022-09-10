@@ -14,7 +14,9 @@ A new Flutter project.
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
+  s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
+  s.dependency 'libPhoneNumber-iOS'
   s.platform = :ios, '9.0'
 
   # Flutter.framework does not contain a i386 slice.
