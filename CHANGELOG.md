@@ -1,7 +1,10 @@
+## 0.0.5
+
+* Fix pod dependency "libPhoneNumber-iOS"
+
 ## 0.0.1
 
-Initial project release
+* Initial project release
+  
 
-Updated README.md
-Added support for custom input decoration
-Added support for custom input border
+
