@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - libPhoneNumber-iOS (0.9.15)
+  - phone_number_text_field (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - libPhoneNumber-iOS (~> 0.8)
+  - phone_number_text_field (from `.symlinks/plugins/phone_number_text_field/ios`)
+
+SPEC REPOS:
+  trunk:
+    - libPhoneNumber-iOS
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  phone_number_text_field:
+    :path: ".symlinks/plugins/phone_number_text_field/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  libPhoneNumber-iOS: 0a32a9525cf8744fe02c5206eb30d571e38f7d75
+  phone_number_text_field: d8eb328b9a5b01c0820f67470da8f7ebd78ee520
+
+PODFILE CHECKSUM: b8fce4570b094f8618a3f610cd13630c0f04feda
+
+COCOAPODS: 1.11.3

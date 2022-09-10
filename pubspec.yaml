@@ -1,0 +1,37 @@
+name: phone_number_text_field
+description: A Flutter package for both android and iOS which.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+  flutter: ">=2.5.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  equatable: ^2.0.5
+  collection: ^1.16.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  plugin:
+    platforms:
+      android:
+        package: com.dmsh.phone_number_text_field
+        pluginClass: PhoneNumberTextFieldPlugin
+      ios:
+        pluginClass: PhoneNumberTextFieldPlugin
+
+  # To add assets to your plugin package, add an assets section, like this:
+  assets:
+    - assets/flags/
+
+
