@@ -1,7 +1,7 @@
 name: phone_number_text_field
-description: A Flutter package for both android and iOS which.
+description: Simple and customizable flutter package to enter phone number in international format using Google's lib phone number.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Soufiene-Hmila/phone_number_text_field.git
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
