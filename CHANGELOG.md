@@ -1,3 +1,7 @@
+## 0.0.6
+
+* Phone number validation
+
 ## 0.0.5
 
 * Fix pod dependency "libPhoneNumber-iOS"

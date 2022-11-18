@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:phone_number_text_field/src/utils/phone_number/phone_number_util.dart';
 

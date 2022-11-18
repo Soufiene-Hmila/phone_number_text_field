@@ -120,7 +120,12 @@ class PhoneNumber extends Equatable {
   /// Accepts [phoneNumber] and [isoCode] and r
   static Future<PhoneNumberType> getPhoneNumberType(String phoneNumber, String isoCode) async {
     PhoneNumberType type = await PhoneNumberUtil.getNumberType(phoneNumber: phoneNumber, isoCode: isoCode);
-
     return type;
   }
+
+  static Future<bool?> isValidNumber(String phoneNumber, String isoCode) async {
+    bool? isValid = await PhoneNumberUtil.isValidNumber(phoneNumber: phoneNumber, isoCode: isoCode);
+    return isValid;
+  }
+
 }
