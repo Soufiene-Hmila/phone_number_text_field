@@ -37,8 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final TextEditingController controller = TextEditingController();
-  String initialCountry = 'NG';
-  PhoneNumber number = PhoneNumber(isoCode: 'NG');
+  String initialCountry = 'TN';
+  PhoneNumber number = PhoneNumber(isoCode: 'TN');
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ElevatedButton(
             onPressed: () {
-              getPhoneNumber('+15417543010');
+              getPhoneNumber('+21651674704');
             },
             child: const Text('Update'),
           ),
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void getPhoneNumber(String phoneNumber) async {
     PhoneNumber number =
-        await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
+        await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'TN');
 
     setState(() {
       this.number = number;

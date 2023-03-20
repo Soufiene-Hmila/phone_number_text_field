@@ -361,6 +361,7 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
 
 class _InputWidgetView extends WidgetView<InternationalPhoneNumberInput, _InputWidgetState> {
 
+  @override
   final _InputWidgetState state;
 
   const _InputWidgetView({Key? key, required this.state})

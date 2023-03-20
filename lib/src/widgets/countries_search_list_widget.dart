@@ -51,7 +51,7 @@ class CountrySearchListWidgetState extends State<CountrySearchListWidget> {
 
   /// Returns [InputDecoration] of the search box
   InputDecoration getSearchBoxDecoration() {
-    return widget.searchBoxDecoration ?? const InputDecoration(labelText: 'Search by country name or dial code');
+    return widget.searchBoxDecoration ?? const InputDecoration(labelText: 'Search by Country / Region name or Dial code');
   }
 
   @override
@@ -179,7 +179,7 @@ class _Flag extends StatelessWidget {
         ? Container(
             child: useEmoji!
                 ? Text(Utils.generateFlagEmojiUnicode(country?.alpha2Code ?? ''),
-                    style: Theme.of(context).textTheme.headline5,)
+                    style: Theme.of(context).textTheme.headlineSmall,)
                 : country?.flagUri != null
                     ? CircleAvatar(backgroundImage: AssetImage(country!.flagUri,
                           package: 'phone_number_text_field',),)
