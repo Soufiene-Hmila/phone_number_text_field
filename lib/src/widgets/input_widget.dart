@@ -272,7 +272,8 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
   InputDecoration getInputDecoration(InputDecoration? decoration) {
     InputDecoration value = decoration ??
         InputDecoration(border: widget.inputBorder ?? const UnderlineInputBorder(),
-          hintText: widget.hintText,);
+          hintText: widget.hintText, hintTextDirection: TextDirection.ltr
+        );
 
     if (widget.selectorConfig.setSelectorButtonAsPrefixIcon) {
       return value.copyWith(prefixIcon: SelectorButton(
@@ -373,6 +374,7 @@ class _InputWidgetView extends WidgetView<InternationalPhoneNumberInput, _InputW
     final dialCode = state.country?.dialCode ?? '';
 
     return Row(
+      textDirection: TextDirection.ltr,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[

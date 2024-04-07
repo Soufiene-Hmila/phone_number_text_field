@@ -17,12 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
-          appBar: AppBar(title: const Text('Demo')),
-          body: MyHomePage(),
-        ),
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Demo')),
+        body: MyHomePage(),
       ),
     );
   }
@@ -94,9 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void getPhoneNumber(String phoneNumber) async {
-    PhoneNumber number =
-        await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'TN');
-
+    PhoneNumber number = await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'TN');
     setState(() {
       this.number = number;
     });

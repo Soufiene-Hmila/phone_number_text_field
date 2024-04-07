@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             ignoreBlank: true,
             autoValidateMode: AutovalidateMode.onUserInteraction,
+            searchBoxDecoration: const InputDecoration(label: Text('Search by country/region name or dial code')),
             initialValue: PhoneNumber(isoCode: 'TN'),
             textFieldController: controller,
             inputBorder: const OutlineInputBorder(),
