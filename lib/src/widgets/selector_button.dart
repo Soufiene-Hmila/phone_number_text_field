@@ -21,7 +21,7 @@ class SelectorButton extends StatelessWidget {
   final ValueChanged<Country?> onCountryChanged;
 
   const SelectorButton({
-    Key? key,
+    super.key,
     required this.countries,
     required this.country,
     required this.selectorConfig,
@@ -32,7 +32,7 @@ class SelectorButton extends StatelessWidget {
     required this.onCountryChanged,
     required this.isEnabled,
     required this.isScrollControlled,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -95,8 +95,7 @@ class SelectorButton extends StatelessWidget {
   }
 
   /// Converts the list [countries] to `DropdownMenuItem`
-  List<DropdownMenuItem<Country>> mapCountryToDropdownItem(
-      List<Country> countries) {
+  List<DropdownMenuItem<Country>> mapCountryToDropdownItem(List<Country> countries) {
     return countries.map((country) {
       return DropdownMenuItem<Country>(
         value: country,

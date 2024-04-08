@@ -1,5 +1,5 @@
-import 'package:phone_number_text_field/src/utils/phone_number.dart';
 import 'package:phone_number_text_field/phone_number_text_field_methode_channel.dart' as p;
+import 'package:phone_number_text_field/src/utils/phone_number.dart';
 
 /// A wrapper class [PhoneNumberUtil] that basically switch between plugin available for `Web` or `Android or IOS` and `Other platforms` when available.
 class PhoneNumberUtil {
@@ -115,7 +115,7 @@ class PhoneNumberTypeUtil {
 }
 
 /// Extension on PhoneNumberType
-extension phonenumbertypeproperties on PhoneNumberType {
+extension PhoneNumberTypeProperties on PhoneNumberType {
   /// Returns the index [int] of the current `PhoneNumberType`
   int get value {
     switch (this) {

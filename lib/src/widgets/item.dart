@@ -13,15 +13,15 @@ class Item extends StatelessWidget {
   final bool trailingSpace;
 
   const Item({
-    Key? key,
+    super.key,
     this.country,
     this.showFlag,
     this.useEmoji,
     this.textStyle,
     this.withCountryNames = false,
     this.leadingPadding = 12,
-    this.trailingSpace = true,
-  }) : super(key: key);
+    this.trailingSpace = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +30,7 @@ class Item extends StatelessWidget {
       dialCode = dialCode.padRight(5, "   ");
     }
     return Row(
+      textDirection: TextDirection.ltr,
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[

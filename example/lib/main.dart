@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           InternationalPhoneNumberInput(
-            textDirection: TextDirection.ltr,
+            textDirection: TextDirection.rtl,
             onInputChanged: (PhoneNumber number) {
               print(number.phoneNumber);
             },
@@ -54,13 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             selectorConfig: const SelectorConfig(
               selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+              setSelectorButtonAsPrefixIcon: true, leadingPadding: 24,
             ),
-            ignoreBlank: false,
-            autoValidateMode: AutovalidateMode.disabled,
+            ignoreBlank: false, autoValidateMode: AutovalidateMode.disabled,
             selectorTextStyle: const TextStyle(color: Colors.black),
-            initialValue: number,
-            textFieldController: controller,
-            formatInput: true,
+            initialValue: number, textFieldController: controller, formatInput: true,
             keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
             inputBorder: const OutlineInputBorder(),
             onSaved: (PhoneNumber number) {

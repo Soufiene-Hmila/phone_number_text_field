@@ -88,8 +88,7 @@ class InternationalPhoneNumberInput extends StatefulWidget {
 
   final List<String>? countries;
 
-  const InternationalPhoneNumberInput(
-      {Key? key,
+  const InternationalPhoneNumberInput({super.key,
       this.selectorConfig = const SelectorConfig(),
       required this.onInputChanged,
       this.onInputValidated,
@@ -127,8 +126,7 @@ class InternationalPhoneNumberInput extends StatefulWidget {
       this.focusNode,
       this.cursorColor,
       this.autofillHints,
-      this.countries})
-      : super(key: key);
+      this.countries});
 
   @override
   State<StatefulWidget> createState() => _InputWidgetState();
@@ -253,8 +251,7 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
 
   /// Returns a formatted String of [phoneNumber] with [isoCode], returns `null`
   /// if [phoneNumber] is not valid or if an [Exception] is caught.
-  Future<String?> getParsedPhoneNumber(
-      String phoneNumber, String? isoCode) async {
+  Future<String?> getParsedPhoneNumber(String phoneNumber, String? isoCode) async {
     if (phoneNumber.isNotEmpty && isoCode != null) {
       try {
         bool? isValidPhoneNumber = await PhoneNumberUtil.isValidNumber(
@@ -279,6 +276,20 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
         );
 
     if (widget.selectorConfig.setSelectorButtonAsPrefixIcon) {
+      if(widget.textDirection == TextDirection.rtl){
+        return value.copyWith(suffixIcon: SelectorButton(
+          country: country,
+          countries: countries,
+          onCountryChanged: onCountryChanged,
+          selectorConfig: widget.selectorConfig,
+          selectorTextStyle: widget.selectorTextStyle,
+          searchBoxDecoration: widget.searchBoxDecoration,
+          locale: locale,
+          isEnabled: widget.isEnabled,
+          autoFocusSearchField: widget.autoFocusSearch,
+          isScrollControlled: widget.countrySelectorScrollControlled,
+        ));
+      }
       return value.copyWith(prefixIcon: SelectorButton(
         country: country,
         countries: countries,
@@ -368,8 +379,7 @@ class _InputWidgetView extends WidgetView<InternationalPhoneNumberInput, _InputW
   @override
   final _InputWidgetState state;
 
-  const _InputWidgetView({Key? key, required this.state})
-      : super(key: key, state: state);
+  const _InputWidgetView({Key? key, required this.state}) : super(key: key, state: state);
 
   @override
   Widget build(BuildContext context) {
@@ -377,7 +387,7 @@ class _InputWidgetView extends WidgetView<InternationalPhoneNumberInput, _InputW
     final dialCode = state.country?.dialCode ?? '';
 
     return Row(
-      textDirection: TextDirection.ltr,
+      textDirection: widget.textDirection,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
