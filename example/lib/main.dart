@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           InternationalPhoneNumberInput(
+            textDirection: TextDirection.ltr,
             onInputChanged: (PhoneNumber number) {
               print(number.phoneNumber);
             },
@@ -59,14 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {
             selectorTextStyle: const TextStyle(color: Colors.black),
             initialValue: number,
             textFieldController: controller,
-            formatInput: false,
-            keyboardType:
-                const TextInputType.numberWithOptions(signed: true, decimal: true),
+            formatInput: true,
+            keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
             inputBorder: const OutlineInputBorder(),
             onSaved: (PhoneNumber number) {
               print('On Saved: $number');
             },
           ),
+
+          const SizedBox(height: 12,),
+
           ElevatedButton(
             onPressed: () {
               formKey.currentState?.validate();

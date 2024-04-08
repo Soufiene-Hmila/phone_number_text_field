@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Text Directionality
+
 ## 0.0.7
 
 * Update version

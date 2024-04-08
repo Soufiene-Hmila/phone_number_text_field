@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:phone_number_text_field/src/models/country_list.dart';
@@ -77,6 +78,7 @@ class InternationalPhoneNumberInput extends StatefulWidget {
   final InputDecoration? inputDecoration;
   final InputDecoration? searchBoxDecoration;
   final Color? cursorColor;
+  final TextDirection textDirection;
   final TextAlign textAlign;
   final TextAlignVertical textAlignVertical;
   final EdgeInsets scrollPadding;
@@ -118,6 +120,7 @@ class InternationalPhoneNumberInput extends StatefulWidget {
       this.inputBorder,
       this.inputDecoration,
       this.searchBoxDecoration,
+      this.textDirection = TextDirection.ltr,
       this.textAlign = TextAlign.start,
       this.textAlignVertical = TextAlignVertical.center,
       this.scrollPadding = const EdgeInsets.all(20.0),
@@ -272,7 +275,7 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
   InputDecoration getInputDecoration(InputDecoration? decoration) {
     InputDecoration value = decoration ??
         InputDecoration(border: widget.inputBorder ?? const UnderlineInputBorder(),
-          hintText: widget.hintText, hintTextDirection: TextDirection.ltr
+          hintText: widget.hintText, hintTextDirection: TextDirection.ltr,
         );
 
     if (widget.selectorConfig.setSelectorButtonAsPrefixIcon) {
@@ -402,40 +405,44 @@ class _InputWidgetView extends WidgetView<InternationalPhoneNumberInput, _InputW
           SizedBox(width: widget.spaceBetweenSelectorAndTextField),
         ],
         Flexible(
-          child: TextFormField(
-            key: widget.fieldKey ?? const Key(TestHelper.TextInputKeyValue),
-            textDirection: TextDirection.ltr,
-            controller: state.controller,
-            cursorColor: widget.cursorColor,
-            focusNode: widget.focusNode,
-            enabled: widget.isEnabled,
-            autofocus: widget.autoFocus,
-            keyboardType: widget.keyboardType,
-            textInputAction: widget.keyboardAction,
-            style: widget.textStyle,
-            decoration: state.getInputDecoration(widget.inputDecoration),
-            textAlign: widget.textAlign,
-            textAlignVertical: widget.textAlignVertical,
-            onEditingComplete: widget.onSubmit,
-            onFieldSubmitted: widget.onFieldSubmitted,
-            autovalidateMode: widget.autoValidateMode,
-            autofillHints: widget.autofillHints,
-            validator: widget.validator ?? state.validator,
-            onSaved: state.onSaved,
-            scrollPadding: widget.scrollPadding,
-            inputFormatters: [
-              LengthLimitingTextInputFormatter(widget.maxLength),
-              widget.formatInput
-                  ? AsYouTypeFormatter(
-                      isoCode: countryCode,
-                      dialCode: dialCode,
-                      onInputFormatted: (TextEditingValue value) {
-                        state.controller!.value = value;
-                      },
-                    )
-                  : FilteringTextInputFormatter.digitsOnly,
-            ],
-            onChanged: state.onChanged,
+          child: Directionality(
+            textDirection: widget.textDirection,
+            child: TextFormField(
+              key: widget.fieldKey ?? const Key(TestHelper.TextInputKeyValue),
+              textDirection: TextDirection.ltr,
+              controller: state.controller,
+              cursorColor: widget.cursorColor,
+              focusNode: widget.focusNode,
+              enabled: widget.isEnabled,
+              autofocus: widget.autoFocus,
+              keyboardType: widget.keyboardType,
+              textInputAction: widget.keyboardAction,
+              style: widget.textStyle,
+              decoration: state.getInputDecoration(widget.inputDecoration),
+              textAlign: widget.textAlign,
+              textAlignVertical: widget.textAlignVertical,
+              onEditingComplete: widget.onSubmit,
+              onFieldSubmitted: widget.onFieldSubmitted,
+              autovalidateMode: widget.autoValidateMode,
+              autofillHints: widget.autofillHints,
+              validator: widget.validator ?? state.validator,
+              onSaved: state.onSaved,
+              scrollPadding: widget.scrollPadding,
+
+              inputFormatters: [
+                LengthLimitingTextInputFormatter(widget.maxLength),
+                widget.formatInput
+                    ? AsYouTypeFormatter(
+                        isoCode: countryCode,
+                        dialCode: dialCode,
+                        onInputFormatted: (TextEditingValue value) {
+                          state.controller!.value = value;
+                        },
+                      )
+                    : FilteringTextInputFormatter.digitsOnly,
+              ],
+              onChanged: state.onChanged,
+            ),
           ),
         )
       ],
